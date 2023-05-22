@@ -1,11 +1,14 @@
 [package]
 name = "generative-artistry"
+authors = ["Ben Leadbetter <ben_leadbetter@hotmail.com>"]
 version = "0.1.0"
 edition = "2021"
+description = "An implementation of the tutorial series from generative-artistry using the nannou framework"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+clap = { version = "4.3.0", features = ["derive"] }
 itertools = "0.10.5"
 nannou = "0.18.1"
 rand = "0.8.5"
