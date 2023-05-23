@@ -1,10 +1,12 @@
 use clap::{Parser, ValueEnum};
 
+mod joy_division;
 mod tiled_lines;
 
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
 enum Tutorial {
     TiledLines,
+    JoyDivision,
 }
 
 #[derive(Parser)]
@@ -15,6 +17,10 @@ struct Cli {
 }
 
 fn main() {
-    let _cli = Cli::parse();
-    tiled_lines::tiled_lines();
+    let cli = Cli::parse();
+    use Tutorial::*;
+    match cli.tutorial {
+        TiledLines => tiled_lines::run(),
+        JoyDivision => joy_division::run(),
+    };
 }

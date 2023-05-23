@@ -15,7 +15,7 @@ struct Line {
     direction: Direction,
 }
 
-pub fn tiled_lines() {
+pub fn run() {
     nannou::app(generate_lines)
         .simple_window(view)
         .size(800, 800)
