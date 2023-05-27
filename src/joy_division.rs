@@ -11,6 +11,8 @@ pub fn run() {
 }
 
 fn draw_line(line: &Line, draw: &Draw) {
+    // todo: spline interpolation should be down on model creation
+    // not during the draw call
     let spline = {
         use splines::*;
         let step = 1.0_f32 / line.len() as f32;
@@ -36,7 +38,7 @@ fn draw_line(line: &Line, draw: &Draw) {
 }
 
 fn generate_lines(app: &App) -> Vec<Line> {
-    let n = 20;
+    let n = 30;
     let line_resolution = 20;
     let height = app.main_window().inner_size_points().0;
     let vstep = height * 0.85 / (n as f32);
