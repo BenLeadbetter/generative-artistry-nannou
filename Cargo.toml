@@ -13,4 +13,4 @@ clap = { version = "4.3.0", features = ["derive"] }
 itertools = "0.10.5"
 nannou = "0.18.1"
 rand = "0.8.5"
-splines = { version = "4.2.0", features = ["cgmath"] }
+splines = { version = "4.2.0", features = ["glam"] }
