@@ -1,20 +1,26 @@
 use nannou::prelude::*;
 use rand::Rng;
 
-type Line = Vec<Point2>;
+type Layer = Vec<Point2>;
 
 pub fn run() {
-    nannou::app(generate_lines)
+    nannou::app(generate_layers)
         .simple_window(view)
         .size(800, 800)
         .run();
 }
 
-fn draw_line(line: &Line, draw: &Draw) {
-    draw.polyline().weight(2_f32).points(line.clone());
+fn draw_layer(layer: &Layer, draw: &Draw) {
+    for top in layer.windows(2) {
+        draw
+            .quad()
+            .color(WHITE)
+            .points(pt2(top[0].x, -400.0), top[0], top[1], pt2(top[1].x, -400.0));
+    }
+    draw.polyline().weight(2_f32).points(layer.clone());
 }
 
-fn generate_lines(app: &App) -> Vec<Line> {
+fn generate_layers(app: &App) -> Vec<Layer> {
     let n = 30;
     let m = 20;
     let line_resolution = 200;
@@ -57,11 +63,11 @@ fn generate_lines(app: &App) -> Vec<Line> {
     ret
 }
 
-fn view(app: &App, model: &Vec<Line>, frame: Frame) {
+fn view(app: &App, model: &Vec<Layer>, frame: Frame) {
     let draw = app.draw();
     draw.background().color(WHITE);
-    for line in model {
-        draw_line(line, &draw);
+    for layer in model.iter().rev() {
+        draw_layer(layer, &draw);
     }
     draw.to_frame(app, &frame).unwrap();
 }
