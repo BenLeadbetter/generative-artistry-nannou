@@ -22,7 +22,7 @@ fn draw_layer(layer: &Layer, draw: &Draw) {
 
 fn generate_layers(app: &App) -> Vec<Layer> {
     let n = 30;
-    let m = 20;
+    let m = 30;
     let line_resolution = 200;
     let step = 1.0_f32 / m as f32;
     let height = app.main_window().inner_size_points().0;
@@ -37,7 +37,7 @@ fn generate_layers(app: &App) -> Vec<Layer> {
         let mut make_point = |j: i32| {
             let variance = (m / 2 - (j - m / 2).abs()) as f32;
             let deviation =
-                rng.gen_range(0.0_f32..1.0_f32) * vstep * variance * variance * 0.05_f32;
+                rng.gen_range(0.0_f32..1.0_f32) * vstep * variance * variance * 0.02_f32;
             pt2(
                 hstart + (j as f32) * hstep,
                 vstart + vstep * (index as f32) + deviation,
