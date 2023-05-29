@@ -7,7 +7,7 @@ using the
 
 ## Progress
 - [x] Tutorial 01
-- [ ] Tutorial 02
+- [x] Tutorial 02
 - [ ] Tutorial 03
 - [ ] Tutorial 04
 - [ ] Tutorial 05
