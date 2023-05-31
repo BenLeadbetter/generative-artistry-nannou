@@ -2,11 +2,13 @@ use clap::{Parser, ValueEnum};
 
 mod joy_division;
 mod tiled_lines;
+mod cubic_disarray;
 
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
 enum Tutorial {
     TiledLines,
     JoyDivision,
+    CubicDisarray,
 }
 
 #[derive(Parser)]
@@ -22,5 +24,6 @@ fn main() {
     match cli.tutorial {
         TiledLines => tiled_lines::run(),
         JoyDivision => joy_division::run(),
+        CubicDisarray => cubic_disarray::run(),
     };
 }

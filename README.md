@@ -6,12 +6,12 @@ using the
 [nannou framework](https://nannou.cc/)
 
 ## Progress
-- [x] Tutorial 01
-- [x] Tutorial 02
-- [ ] Tutorial 03
-- [ ] Tutorial 04
-- [ ] Tutorial 05
-- [ ] Tutorial 06
-- [ ] Tutorial 07
-- [ ] Tutorial 08
-- [ ] Tutorial 09
+- [x] Tiled Lines
+- [x] Joy Division
+- [x] Cubic Disarray
+- [ ] Triangular Mesh
+- [ ] Un Deux Trois
+- [ ] Circle Packing
+- [ ] Hypnotic Squares
+- [ ] Piet Mondrian
+- [ ] Hours of Dark
