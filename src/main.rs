@@ -1,14 +1,16 @@
 use clap::{Parser, ValueEnum};
 
+mod cubic_disarray;
 mod joy_division;
 mod tiled_lines;
-mod cubic_disarray;
+mod triangular_mesh;
 
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
 enum Tutorial {
     TiledLines,
     JoyDivision,
     CubicDisarray,
+    TriangularMesh,
 }
 
 #[derive(Parser)]
@@ -25,5 +27,6 @@ fn main() {
         TiledLines => tiled_lines::run(),
         JoyDivision => joy_division::run(),
         CubicDisarray => cubic_disarray::run(),
+        TriangularMesh => triangular_mesh::run(),
     };
 }

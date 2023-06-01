@@ -9,7 +9,7 @@ using the
 - [x] Tiled Lines
 - [x] Joy Division
 - [x] Cubic Disarray
-- [ ] Triangular Mesh
+- [x] Triangular Mesh
 - [ ] Un Deux Trois
 - [ ] Circle Packing
 - [ ] Hypnotic Squares

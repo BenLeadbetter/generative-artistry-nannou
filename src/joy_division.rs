@@ -12,10 +12,12 @@ pub fn run() {
 
 fn draw_layer(layer: &Layer, draw: &Draw) {
     for top in layer.windows(2) {
-        draw
-            .quad()
-            .color(WHITE)
-            .points(pt2(top[0].x, -400.0), top[0], top[1], pt2(top[1].x, -400.0));
+        draw.quad().color(WHITE).points(
+            pt2(top[0].x, -400.0),
+            top[0],
+            top[1],
+            pt2(top[1].x, -400.0),
+        );
     }
     draw.polyline().weight(2_f32).points(layer.clone());
 }
