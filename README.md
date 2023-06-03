@@ -10,7 +10,7 @@ using the
 - [x] Joy Division
 - [x] Cubic Disarray
 - [x] Triangular Mesh
-- [ ] Un Deux Trois
+- [x] Un Deux Trois
 - [ ] Circle Packing
 - [ ] Hypnotic Squares
 - [ ] Piet Mondrian

@@ -46,10 +46,13 @@ fn generate_grid(app: &App) -> Grid {
         let mut row = Vec::new();
         for i in 0..n {
             let xoffset = if j % 2 == 0 { xstep * 0.5 } else { 0.0 };
-            row.push((pt2(
-                xstart + i as f32 * xstep + xoffset + rng.gen_range(-0.3..0.3) * xstep,
-                ystart + j as f32 * ystep + rng.gen_range(-0.3..0.3) * ystep,
-            ), (i, j)));
+            row.push((
+                pt2(
+                    xstart + i as f32 * xstep + xoffset + rng.gen_range(-0.3..0.3) * xstep,
+                    ystart + j as f32 * ystep + rng.gen_range(-0.3..0.3) * ystep,
+                ),
+                (i, j),
+            ));
         }
         grid.push(row);
     }
@@ -105,6 +108,8 @@ fn draw_triangle(triangle: &[(Point2, (usize, usize)); 3], draw: &Draw, color_ma
 fn view(app: &App, model: &Model, frame: Frame) {
     let draw = app.draw();
     draw.background().color(WHITE);
-    for_each_triangle(&model.0, |points| { draw_triangle(points, &draw, &model.1); });
+    for_each_triangle(&model.0, |points| {
+        draw_triangle(points, &draw, &model.1);
+    });
     draw.to_frame(app, &frame).unwrap();
 }

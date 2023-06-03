@@ -4,6 +4,7 @@ mod cubic_disarray;
 mod joy_division;
 mod tiled_lines;
 mod triangular_mesh;
+mod un_deux_trois;
 
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
 enum Tutorial {
@@ -11,6 +12,7 @@ enum Tutorial {
     JoyDivision,
     CubicDisarray,
     TriangularMesh,
+    UnDeuxTrois,
 }
 
 #[derive(Parser)]
@@ -28,5 +30,6 @@ fn main() {
         JoyDivision => joy_division::run(),
         CubicDisarray => cubic_disarray::run(),
         TriangularMesh => triangular_mesh::run(),
+        UnDeuxTrois => un_deux_trois::run(),
     };
 }
