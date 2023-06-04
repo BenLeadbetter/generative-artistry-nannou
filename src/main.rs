@@ -1,5 +1,6 @@
 use clap::{Parser, ValueEnum};
 
+mod circle_packing;
 mod cubic_disarray;
 mod joy_division;
 mod tiled_lines;
@@ -13,6 +14,7 @@ enum Tutorial {
     CubicDisarray,
     TriangularMesh,
     UnDeuxTrois,
+    CirclePacking,
 }
 
 #[derive(Parser)]
@@ -31,5 +33,6 @@ fn main() {
         CubicDisarray => cubic_disarray::run(),
         TriangularMesh => triangular_mesh::run(),
         UnDeuxTrois => un_deux_trois::run(),
+        CirclePacking => circle_packing::run(),
     };
 }

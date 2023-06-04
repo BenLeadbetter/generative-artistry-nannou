@@ -11,7 +11,7 @@ using the
 - [x] Cubic Disarray
 - [x] Triangular Mesh
 - [x] Un Deux Trois
-- [ ] Circle Packing
+- [x] Circle Packing
 - [ ] Hypnotic Squares
 - [ ] Piet Mondrian
 - [ ] Hours of Dark

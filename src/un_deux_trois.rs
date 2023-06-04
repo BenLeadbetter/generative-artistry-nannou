@@ -21,12 +21,12 @@ fn generate_model(app: &App) -> Model {
     let mut rng = rand::thread_rng();
     let mut ret = Vec::new();
     for (i, j) in (0..n).cartesian_product(0..n) {
-        let nlines =  3  - j / 5;
+        let nlines = 3 - j / 5;
         let (line_start, line_step) = match nlines {
             1 => (0.5, 0.5),
             2 => (0.2, 0.6),
             3 => (0.1, 0.4),
-            _ => unreachable!()
+            _ => unreachable!(),
         };
         let i = i as f32;
         let j = j as f32;
@@ -36,7 +36,7 @@ fn generate_model(app: &App) -> Model {
             let k = k as f32;
             let mut p1 = pt2(
                 start + step * (i + line_step * k + line_start),
-                start + step * j 
+                start + step * j,
             );
             let mut p2 = pt2(
                 start + step * (i + line_step * k + line_start),
