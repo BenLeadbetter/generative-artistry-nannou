@@ -3,6 +3,7 @@ use clap::{Parser, ValueEnum};
 mod circle_packing;
 mod common;
 mod cubic_disarray;
+mod hypnotic_squares;
 mod joy_division;
 mod tiled_lines;
 mod triangular_mesh;
@@ -16,6 +17,7 @@ enum Tutorial {
     TriangularMesh,
     UnDeuxTrois,
     CirclePacking,
+    HypnoticSquares,
 }
 
 #[derive(Parser)]
@@ -35,5 +37,6 @@ fn main() {
         TriangularMesh => triangular_mesh::run(),
         UnDeuxTrois => un_deux_trois::run(),
         CirclePacking => circle_packing::run(),
+        HypnoticSquares => hypnotic_squares::run(),
     };
 }

@@ -12,6 +12,6 @@ using the
 - [x] Triangular Mesh
 - [x] Un Deux Trois
 - [x] Circle Packing
-- [ ] Hypnotic Squares
+- [x] Hypnotic Squares
 - [ ] Piet Mondrian
 - [ ] Hours of Dark
