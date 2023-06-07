@@ -1,3 +1,4 @@
+use crate::common;
 use nannou::prelude::*;
 use rand::Rng;
 
@@ -5,6 +6,9 @@ type Layer = Vec<Point2>;
 
 pub fn run() {
     nannou::app(generate_layers)
+        .event(|app, model, event| {
+            common::refresh_model_on_space(app, model, event, generate_layers)
+        })
         .simple_window(view)
         .size(800, 800)
         .run();

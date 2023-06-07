@@ -1,6 +1,7 @@
 use clap::{Parser, ValueEnum};
 
 mod circle_packing;
+mod common;
 mod cubic_disarray;
 mod joy_division;
 mod tiled_lines;

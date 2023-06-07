@@ -1,3 +1,4 @@
+use crate::common;
 use itertools::Itertools;
 use nannou::prelude::*;
 use rand::Rng;
@@ -6,6 +7,7 @@ type Square = [Point2; 4];
 
 pub fn run() {
     nannou::app(generate_squares)
+        .event(|a, m, e| common::refresh_model_on_space(a, m, e, generate_squares))
         .simple_window(view)
         .size(800, 800)
         .run();

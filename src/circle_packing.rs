@@ -1,3 +1,4 @@
+use crate::common;
 use nannou::prelude::*;
 use rand::Rng;
 
@@ -19,7 +20,11 @@ impl Circle {
 }
 
 pub fn run() {
-    nannou::app(model).simple_window(view).size(800, 800).run();
+    nannou::app(model)
+        .event(|a, m, e| common::refresh_model_on_space(a, m, e, model))
+        .simple_window(view)
+        .size(800, 800)
+        .run();
 }
 
 fn draw_circle(circle: &Circle, draw: &Draw) {
