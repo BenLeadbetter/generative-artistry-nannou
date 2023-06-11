@@ -13,5 +13,5 @@ using the
 - [x] Un Deux Trois
 - [x] Circle Packing
 - [x] Hypnotic Squares
-- [ ] Piet Mondrian
+- [x] Piet Mondrian
 - [ ] Hours of Dark

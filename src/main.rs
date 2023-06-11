@@ -5,6 +5,7 @@ mod common;
 mod cubic_disarray;
 mod hypnotic_squares;
 mod joy_division;
+mod piet_mondrian;
 mod tiled_lines;
 mod triangular_mesh;
 mod un_deux_trois;
@@ -18,6 +19,7 @@ enum Tutorial {
     UnDeuxTrois,
     CirclePacking,
     HypnoticSquares,
+    PietMondrian,
 }
 
 #[derive(Parser)]
@@ -38,5 +40,6 @@ fn main() {
         UnDeuxTrois => un_deux_trois::run(),
         CirclePacking => circle_packing::run(),
         HypnoticSquares => hypnotic_squares::run(),
+        PietMondrian => piet_mondrian::run(),
     };
 }
