@@ -81,13 +81,14 @@ impl Rectangle {
     }
 }
 
+// the Sutherland–Hodgman algorithm
 fn clip(mut poly: Polygon, mask: &Rectangle) -> Polygon {
     if poly.is_empty() {
         return poly;
     }
     let mut temp = Polygon::new();
     for edge in mask.edges() {
-        let mut previous: Option<Point2> = poly.last().copied();
+        let mut previous = poly.last().copied();
         for &vertex in &poly {
             if let Some(prev) = previous {
                 if let Some(intersect) = edge.intersect((prev, vertex)) {
