@@ -34,7 +34,11 @@ fn color(color: &(u8, u8, u8)) -> (f32, f32, f32) {
     (map(color.0), map(color.1), map(color.2))
 }
 
-fn split<P: Fn(&Quad) -> bool, S: Fn(Quad) -> [Quad; 2]>(predicate: P, split_fn: S, model: &mut Model) {
+fn split<P: Fn(&Quad) -> bool, S: Fn(Quad) -> [Quad; 2]>(
+    predicate: P,
+    split_fn: S,
+    model: &mut Model,
+) {
     let mut new_quads = Vec::new();
     let mut rng = rand::thread_rng();
     loop {
@@ -59,34 +63,25 @@ fn split_quads_with(pt: &Point2, model: &mut Model) {
 
 fn split_quad_on_x(x: f32, quad: Quad) -> [Quad; 2] {
     [
-        Quad([
-            pt2(quad.0[0].x, quad.0[0].y),
-            pt2(x, quad.0[1].y),
-        ], quad.1),
-        Quad([
-            pt2(x, quad.0[0].y),
-            pt2(quad.0[1].x, quad.0[1].y),
-        ], quad.1),
+        Quad([pt2(quad.0[0].x, quad.0[0].y), pt2(x, quad.0[1].y)], quad.1),
+        Quad([pt2(x, quad.0[0].y), pt2(quad.0[1].x, quad.0[1].y)], quad.1),
     ]
 }
 
 fn split_quad_on_y(y: f32, quad: Quad) -> [Quad; 2] {
     [
-        Quad([
-            pt2(quad.0[0].x, quad.0[0].y),
-            pt2(quad.0[1].x, y),
-        ], quad.1),
-        Quad([
-            pt2(quad.0[0].x, y),
-            pt2(quad.0[1].x, quad.0[1].y),
-        ], quad.1),
+        Quad([pt2(quad.0[0].x, quad.0[0].y), pt2(quad.0[1].x, y)], quad.1),
+        Quad([pt2(quad.0[0].x, y), pt2(quad.0[1].x, quad.0[1].y)], quad.1),
     ]
 }
 
 fn model(app: &App) -> Model {
     let size = app.main_window().inner_size_points().0 * 0.9;
     let start = -size / 2.0;
-    let mut model = vec![Quad([pt2(start, start), pt2(start + size, start + size)], color(&WHITE))];
+    let mut model = vec![Quad(
+        [pt2(start, start), pt2(start + size, start + size)],
+        color(&WHITE),
+    )];
     let n = 6_usize;
     let step = size / n as f32;
     for i in 0..n {
@@ -118,7 +113,7 @@ fn draw_quad(quad: &Quad, draw: &Draw) {
             pt2(quad.0[1].x, quad.0[1].y),
             pt2(quad.0[0].x, quad.0[1].y),
         )
-        .rgb(quad.1.0, quad.1.1, quad.1.2)
+        .rgb(quad.1 .0, quad.1 .1, quad.1 .2)
         .stroke_weight(5.0f32);
 }
 

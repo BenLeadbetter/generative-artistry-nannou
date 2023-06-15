@@ -14,4 +14,4 @@ using the
 - [x] Circle Packing
 - [x] Hypnotic Squares
 - [x] Piet Mondrian
-- [ ] Hours of Dark
+- [x] Hours of Dark
