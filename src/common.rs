@@ -16,3 +16,9 @@ pub fn refresh_model_on_space<M, G: FnOnce(&App) -> M>(
         }
     }
 }
+
+pub fn rotate_about_point(pt: &mut Point2, origin: &Point2, angle: f32) {
+    *pt -= *origin;
+    *pt = pt.rotate(angle);
+    *pt += *origin;
+}

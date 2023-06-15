@@ -44,18 +44,12 @@ fn generate_model(app: &App) -> Model {
                 start + step * (i + line_step * k + line_start),
                 start + step * (j + 1.0),
             );
-            rotate_about_point(&mut p1, &mid_point, angle);
-            rotate_about_point(&mut p2, &mid_point, angle);
+            common::rotate_about_point(&mut p1, &mid_point, angle);
+            common::rotate_about_point(&mut p2, &mid_point, angle);
             ret.push((p1, p2));
         }
     }
     ret
-}
-
-fn rotate_about_point(pt: &mut Point2, origin: &Point2, angle: f32) {
-    *pt -= *origin;
-    *pt = pt.rotate(angle);
-    *pt += *origin;
 }
 
 fn view(app: &App, model: &Model, frame: Frame) {
