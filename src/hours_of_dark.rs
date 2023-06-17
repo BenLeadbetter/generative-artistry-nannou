@@ -79,6 +79,15 @@ impl Rectangle {
     fn bottom_right(&self) -> Point2 {
         pt2(self.1.x, self.0.y)
     }
+    fn width(&self) -> f32 {
+        self.span().x
+    }
+    fn height(&self) -> f32 {
+        self.span().y
+    }
+    fn span(&self) -> Point2 {
+        self.top_right() - self.bottom_left()
+    }
 }
 
 // the Sutherland–Hodgman algorithm
@@ -108,22 +117,62 @@ fn clip(mut poly: Polygon, mask: &Rectangle) -> Polygon {
 
 pub fn run() {
     nannou::app(model)
-        .event(|a, m, e| common::refresh_model_on_space(a, m, e, model))
         .simple_window(view)
         .size(800, 800)
         .run();
 }
 
-fn model(app: &App) -> () {
-    let n = 23_usize;
+fn model(app: &App) -> Vec<Polygon> {
+    let n = 365.0.sqrt().ceil() as usize;
     let size = app.main_window().inner_size_points().0 * 0.9;
-    let _start = -size / 2.0;
-    let _step = size / n as f32;
+    let start = -size / 2.0;
+    let step = size / n as f32;
+    let mut count = 0;
+    let mut row = 0;
+    let mut ret = Vec::new();
+    loop {
+        if count == 365 {
+            break;
+        }
+        if count % n == 0 {
+            row += 1;
+        }
+        let col = count % n;
+        let bottom_left = pt2(start + row as f32 * step, -start - col as f32 * step) - pt2(step, step) * 0.5;
+        let phi = count as f32 / 365.0 * PI;
+        let angle = phi.sin() * PI * 0.45 + 2.42;
+        let thickness = phi.cos().abs() * 2.0 + 1.0;
+        let line = gen_line(&Rectangle(bottom_left, bottom_left + pt2(step, step)), angle, thickness);
+        ret.push(line);
+        count += 1;
+    }
+    ret
 }
 
-fn view(app: &App, _model: &(), frame: Frame) {
+fn gen_line(rect: &Rectangle, angle: f32, thickness: f32) -> Polygon {
+    let mid = rect.bottom_left() + rect.span() / 2.0;
+    let v = (0.05 * rect.height() * pt2(0.0, 1.0)) * thickness;
+    let w = rect.width() * pt2(1.0, 0.0);
+    let mut ret = vec![
+        mid + v + w,
+        mid + v - w,
+        mid - v - w,
+        mid - v + w,
+    ];
+    for p in &mut ret {
+        common::rotate_about_point(p, &mid, angle);
+    }
+    clip(ret, rect)
+}
+
+fn view(app: &App, model: &Vec<Polygon>, frame: Frame) {
     let draw = app.draw();
     draw.background().color(WHITE);
+    for poly in model {
+        draw.polygon()
+            .points(poly.clone())
+            .color(BLACK);
+    }
     draw.to_frame(app, &frame).unwrap();
 }
 
