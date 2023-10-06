@@ -11,20 +11,20 @@ using the
 
 Firstly, clone the code and set things up on your machine:
 
-\```bash
+```bash
 git clone git@github.com:BenLeadbetter/generative-artistry-nannou.git
 cd your-repository-name
-\```
+```
 
 ### 2. Build and Run 🎩✨
 
 If you haven't already installed Rust and Cargo, do a quick [detour here](https://rustup.rs/) and grab the necessary tools.
 Now, let's build and run:
 
-\```bash
+```bash
 cargo build --release
 cargo run --release
-\```
+```
 
 🔥 Enjoy some generative art implemented in pure rust! 🔥
 
