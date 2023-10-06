@@ -13,7 +13,7 @@ Firstly, clone the code and set things up on your machine:
 
 ```bash
 git clone git@github.com:BenLeadbetter/generative-artistry-nannou.git
-cd your-repository-name
+cd generative-artistry-nannou
 ```
 
 ### 2. Build and Run 🎩✨
